@@ -1,0 +1,8 @@
+*.pyc
+.DS_Store
+.*_cache
+*.egg-info
+dist
+bulid
+._*
+old

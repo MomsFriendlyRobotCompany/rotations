@@ -8,7 +8,7 @@ license = "MIT"
 homepage = "https://pypi.org/project/rotations/"
 repository = 'https://github.com/MomsFriendlyRobotCompany/rotations'
 # documentation = "http://..."
-keywords = ["orbit"]
+keywords = ["euler", "rotation", "matrix"]
 classifiers = [
     'Development Status :: 4 - Beta',
     'Intended Audience :: Developers',

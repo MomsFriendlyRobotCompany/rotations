@@ -21,25 +21,37 @@ def R321(a,b,c, degrees=False):
 def R1(a, degrees=False):
     if degrees:
         a *= deg2rad
-        b *= deg2rad
-        c *= deg2rad
-    return None
+    ca = np.cos(a)
+    sa = np.sin(a)
+    return np.array(
+        [[1,0,0],
+         [0,ca,sa],
+         [0,-sa,ca]]
+    )
 
 
 def R2(a, degrees=False):
     if degrees:
         a *= deg2rad
-        b *= deg2rad
-        c *= deg2rad
-    return None
+    ca = np.cos(a)
+    sa = np.sin(a)
+    return np.array(
+        [[ca, 0,-sa],
+         [0,1,0],
+         [sa,0,ca]]
+    )
 
 
 def R3(a, degrees=False):
     if degrees:
         a *= deg2rad
-        b *= deg2rad
-        c *= deg2rad
-    return None
+    ca = np.cos(a)
+    sa = np.sin(a)
+    return np.array(
+        [[ca, sa,0],
+         [-sa,ca,0],
+         [0,0,1]]
+    )
 
 
 def R313(a,b,c, degrees=False):
@@ -56,7 +68,7 @@ def R313(a,b,c, degrees=False):
     return np.array(
         [
             [c1*c3-c2*s1*s3, -c1*s3-c2*c3*s1, s1*s2],
-            [c3*s1+c1*c2*c3, c1*c2*s3, c1*c2*c3-s1*s3,-c1*s2],
+            [c3*s1+c1*c2*s3, c1*c2*c3-s1*s3,-c1*s2],
             [s2*s3, c3*s2, c2]
         ]
     )

@@ -1,15 +1,30 @@
+# -*- coding: utf-8 -*-
+##############################################
+# The MIT License (MIT)
+# Copyright (c) 2020 Kevin Walchko
+# see LICENSE for full details
+##############################################
+
 import numpy as np
-from numpy import sin, cos, pi
+from numpy import sin, cos, pi, sqrt
+deg2rad = pi/180
+rad2deg = 180/pi
 
 
-def ll2ned(lat, lon):
+def ecef2ned(lat, lon, degrees=True):
+    if degrees:
+        lat *= deg2rad
+        lon *= deg2rad
     return np.array([
         [-sin(lat)*cos(lon), -sin(lat)*sin(lon), cos(lat)],
         [-sin(lon), cos(lon), 0],
         [-cos(lat)*cos(lon), -cos(lat)*sin(lon), -sin(lat)]
     ])
 
-def ll2nwu(lat, lon):
+def ll2nwu(lat, lon, degrees=True):
+    if degrees:
+        lat *= deg2rad
+        lon *= deg2rad
     return np.array([
         [-sin(lat)*cos(lon), -sin(lat)*sin(lon), cos(lat)],
         [sin(lon), -cos(lon), 0],
@@ -19,7 +34,7 @@ def ll2nwu(lat, lon):
 def ll2ecef(lat,lon, alt, degrees=True):
     if degrees:
         lat *= deg2rad
-        lon *=deg2rad
+        lon *= deg2rad
 
     a = 6378137.0 # WGS semi-major axis
     b = 6356752.314245 # WGS semi-minor axis

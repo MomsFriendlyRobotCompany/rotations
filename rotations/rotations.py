@@ -10,12 +10,12 @@ import numpy as np
 rad2deg = 180/np.pi
 deg2rad = np.pi/180
 
-def R321(a,b,c, degrees=False):
-    if degrees:
-        a *= deg2rad
-        b *= deg2rad
-        c *= deg2rad
-    return None
+# def R321(a,b,c, degrees=False):
+#     if degrees:
+#         a *= deg2rad
+#         b *= deg2rad
+#         c *= deg2rad
+#     return None
 
 
 def R1(a, degrees=False):
@@ -55,7 +55,7 @@ def R3(a, degrees=False):
 
 
 def R313(a,b,c, degrees=False):
-    """Returns a rotation matrix based on: Z1*X2*Z3"""
+    """Returns a rotation matrix based on: Z1(c)*X2(b)*Z3(a)"""
     if degrees:
         a *= deg2rad
         b *= deg2rad
@@ -75,7 +75,7 @@ def R313(a,b,c, degrees=False):
 
 
 def R312(a,b,c, degrees=False):
-    """Returns a rotation matrix based on: Z1*X2*Z3"""
+    """Returns a rotation matrix based on: Y2*X1*Z3"""
     if degrees:
         a *= deg2rad
         b *= deg2rad
@@ -95,7 +95,7 @@ def R312(a,b,c, degrees=False):
 
 
 def R321(a,b,c, degrees=False):
-    """Returns a rotation matrix based on: Z1*X2*Z3"""
+    """Returns a rotation matrix based on: Z3*Y2*X1"""
     if degrees:
         a *= deg2rad
         b *= deg2rad

@@ -12,6 +12,12 @@ rad2deg = 180/pi
 
 
 def ecef2ned(lat, lon, degrees=True):
+    """
+    Pned = R(Pecef - Pref)
+    
+    Note: R below equals R^T on wikipedia
+    https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates
+    """
     if degrees:
         lat *= deg2rad
         lon *= deg2rad

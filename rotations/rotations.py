@@ -10,23 +10,16 @@ import numpy as np
 rad2deg = 180/np.pi
 deg2rad = np.pi/180
 
-# def R321(a,b,c, degrees=False):
-#     if degrees:
-#         a *= deg2rad
-#         b *= deg2rad
-#         c *= deg2rad
-#     return None
-
-
+# https://en.wikipedia.org/wiki/Rotation_matrix
 def R1(a, degrees=False):
     if degrees:
         a *= deg2rad
     ca = np.cos(a)
     sa = np.sin(a)
     return np.array(
-        [[1,0,0],
-         [0,ca,sa],
-         [0,-sa,ca]]
+        [[1,  0,   0],
+         [0, ca, -sa],
+         [0, sa,  ca]]
     )
 
 
@@ -36,9 +29,9 @@ def R2(a, degrees=False):
     ca = np.cos(a)
     sa = np.sin(a)
     return np.array(
-        [[ca, 0,-sa],
-         [0,1,0],
-         [sa,0,ca]]
+        [[ ca, 0, sa],
+         [  0, 1,  0],
+         [-sa, 0, ca]]
     )
 
 
@@ -48,9 +41,9 @@ def R3(a, degrees=False):
     ca = np.cos(a)
     sa = np.sin(a)
     return np.array(
-        [[ca, sa,0],
-         [-sa,ca,0],
-         [0,0,1]]
+        [[ca, -sa, 0],
+         [sa,  ca, 0],
+         [ 0,   0, 1]]
     )
 
 

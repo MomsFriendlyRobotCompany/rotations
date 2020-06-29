@@ -9,6 +9,7 @@ try:
 except ImportError:
     from importlib_metadata import version # type: ignore
 
+from rotations.rotations import R1,R2,R3,R321,R123,R313
 
 __author__ = 'Kevin Walchko'
 __license__ = 'MIT'

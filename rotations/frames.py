@@ -11,10 +11,41 @@ deg2rad = pi/180
 rad2deg = 180/pi
 
 
+# 
+# class Frame:
+#     def __init__(self, name, parent, child, orientation, translation):
+#         pass
+#
+#     def to_parent(self, pt):
+#         pass
+#
+#     def to_chile(self, pt):
+#         pass
+#
+#     @property
+#     def parent(self):
+#         return None
+#
+#     @parent.setter
+#     def parent(self, x):  # value?
+#         return None
+#
+#     @property
+#     def child(self):
+#         return None
+#
+# class ECI(Frame):
+#     def __init__(self):
+#         super(ECI, self).__init__("eci",None,)
+
+
+
+
+
 def ecef2ned(lat, lon, degrees=True):
     """
     Pned = R(Pecef - Pref)
-    
+
     Note: R below equals R^T on wikipedia
     https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates
     """

@@ -84,3 +84,23 @@ def ll2ecef(lat,lon, alt, degrees=True):
     z = (a*(1-e*e)/d+alt)*sin(lat)
 
     return np.array([x,y,z])
+
+def ll2ecef2(lat, lon, H):
+    # is this the same as the other ll2ecef?
+    #
+    # phi = lat
+    # lambda = lon
+    # H = height above mean sea-level (altitude)
+    e = 1.0
+    re = 6378137.0  # radius of Earth in meters
+    
+    # convert degrees to angles
+    lat *= deg2rad
+    lon *= deg2rad
+    
+    rm = re * (1.0 - e**2) / pow(1.0 - e**2 * sin(lat)**2, 3.0 / 2.0)
+    rn = re / sqrt(1.0 - e**2 * sin(lat)**2)
+    x = (rn + H) * cos(lat) * cos(lon)
+    y = (rn + H) * cos(lat) * sin(lon)
+    z = (rm + H) * sin(lat)
+    return x, y, z

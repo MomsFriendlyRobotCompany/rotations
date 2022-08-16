@@ -7,8 +7,7 @@
 
 import numpy as np
 from numpy import sin, cos, pi, sqrt
-deg2rad = pi/180
-rad2deg = 180/pi
+from .utils import rad2deg, deg2rad
 
 
 # 

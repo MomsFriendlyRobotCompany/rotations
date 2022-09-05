@@ -1,3 +1,4 @@
+import pytest
 from rotations.rotations import R1,R2,R3,R313,R321
 import numpy as np
 # from scipy.spatial.transform import Rotation as R
@@ -19,9 +20,9 @@ def test_313():
                 assert np.allclose(r313, r)
 
 def test_321():
-    for one in [-65,0,90]:
-        for two in  [90, -45, -90]:
-            for three in [-90, -45, 0]:
+    for one in [-65,0,90, 100]:
+        for two in  [80, -45, -80]:
+            for three in [-90, -45, 0, 45, 90]:
                 r321 = R1(three, True) @ R2(two,True) @ R3(one,True)
                 r = R321(one,two,three,True)
                 # print("")
@@ -29,6 +30,11 @@ def test_321():
                 # print(r)
                 # print(r-r321)
                 assert np.allclose(r321, r)
+                assert np.allclose(r.T @ r, np.eye(3))
+                assert np.allclose(np.linalg.inv(r) @ r, np.eye(3))
+
+                # with pytest.raises(Exception):
+                #     r == R1(one, True) @ R2(two,True) @ R3(three,True)
 
                 # rr = R.from_euler('zyx',
                 #     [[one,0,0],

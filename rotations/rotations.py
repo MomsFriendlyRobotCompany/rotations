@@ -96,7 +96,7 @@ def R312(a,b,c, degrees=False):
 # p_body = X*Y*Z p_inertial
 # R321 = lambda a,b,c,v=False: R123(a,b,c,v).T
 def R321(a,b,c, degrees=False):
-    """Returns a rotation matrix based on: X*Y*Z"""
+    """Returns a rotation matrix based on: X(c)*Y(b)*Z(a)"""
     if degrees:
         a *= deg2rad
         b *= deg2rad

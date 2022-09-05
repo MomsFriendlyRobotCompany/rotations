@@ -6,9 +6,7 @@
 ##############################################
 
 import numpy as np
-
-rad2deg = 180/np.pi
-deg2rad = np.pi/180
+from .utils import rad2deg, deg2rad
 
 # https://en.wikipedia.org/wiki/Rotation_matrix
 def R1(a, degrees=False):
